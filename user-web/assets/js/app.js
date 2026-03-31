@@ -3,7 +3,7 @@
  * Fully Merged: Auth, Feed, and E2EE Chat Vault
  */
 
-const API_BASE = "http://api.baganix.online/v1"; 
+const API_BASE = "https://api.baganix.online/v1"; 
 
 const BaganixApp = {
     // --- 1. UTILITIES ---
