@@ -143,12 +143,21 @@
         }
     }
 
-    // --- 6. Form Submission Binds ---
+    // --- 6. Form Submission Binds (With Cache Safeties) ---
     function submitLogin(e) {
         e.preventDefault();
         const email = document.getElementById('email').value;
         const pass = document.getElementById('password').value;
-        if (typeof BaganixApp !== 'undefined') BaganixApp.login(email, pass);
+        
+        if (typeof BaganixApp !== 'undefined') {
+            if (typeof BaganixApp.login === 'function') {
+                BaganixApp.login(email, pass);
+            } else {
+                alert("Please perform a Hard Refresh (Ctrl+Shift+R) to clear your browser cache.");
+            }
+        } else {
+            alert("App Engine is still loading. Ensure app.js is saved properly.");
+        }
     }
 
     function submitRegister(e) {
@@ -156,6 +165,15 @@
         const username = document.getElementById('regUsername').value;
         const email = document.getElementById('regEmail').value;
         const pass = document.getElementById('regPassword').value;
-        if (typeof BaganixApp !== 'undefined') BaganixApp.register(username, email, pass);
+        
+        if (typeof BaganixApp !== 'undefined') {
+            if (typeof BaganixApp.register === 'function') {
+                BaganixApp.register(username, email, pass);
+            } else {
+                alert("Error: Missing the register function! Your browser is loading an old version of app.js. Please Hard Refresh (Ctrl+Shift+R or Cmd+Shift+R) and try again.");
+            }
+        } else {
+            alert("App Engine is still loading. Ensure app.js is saved properly.");
+        }
     }
 </script>
