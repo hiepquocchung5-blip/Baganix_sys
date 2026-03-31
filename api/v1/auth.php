@@ -5,7 +5,7 @@
  * Handles Registration and Login.
  */
 
-require_once '../../config/database.Baganix.online.php';
+require_once '../config/database.php';
 header('Content-Type: application/json');
 
 // Get raw JSON payload from frontend
