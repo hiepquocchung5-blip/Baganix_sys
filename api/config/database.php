@@ -33,6 +33,9 @@ try {
     // Initialize pure MySQLi connection
     $db = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     $db->set_charset("utf8mb4"); // Enforce Burmese Unicode
+
+    // ✅ Full success output for debugging: connection established.
+    echo "Database connection successful fully\n";
 } catch (mysqli_sql_exception $e) {
     http_response_code(500);
     echo json_encode([
