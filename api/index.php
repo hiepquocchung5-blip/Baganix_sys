@@ -3,7 +3,7 @@
  * 🌟 Baganix API Portal Root
  * Domain: api.Baganix.online
  */
-
+header("Access-Control-Allow-Origin: w.baganix.online"); // Allow only the web frontend
 header('Content-Type: application/json');
 
 // A premium welcome message for the API root
