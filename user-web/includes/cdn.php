@@ -24,15 +24,15 @@ $bgnx_version = "1.0.0";
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- 5. Baganix Local CSS (Aurora Glass UI) -->
-<link rel="stylesheet" href="assets/css/aurora.css?v=<?= $bgnx_version ?>">
+<link rel="stylesheet" href="/assets/css/aurora.css?v=<?= $bgnx_version ?>">
 
 <!-- ========================================== -->
 <!-- DEFER LOCAL JS SCRIPTS (Loads after DOM)   -->
 <!-- ========================================== -->
 <!-- E2EE WebCrypto Engine -->
-<script src="assets/js/crypto.js?v=<?= $bgnx_version ?>" defer></script>
+<script src="/assets/js/crypto.js?v=<?= $bgnx_version ?>" defer></script>
 <!-- Main App Logic -->
-<script src="assets/js/app.js?v=<?= $bgnx_version ?>" defer></script>
+<script src="/assets/js/app.js?v=<?= $bgnx_version ?>" defer></script>
 
 <!-- SweetAlert2 Custom Glass Theme Override -->
 <style>
