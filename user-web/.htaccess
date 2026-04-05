@@ -1,0 +1,16 @@
+# 🌟 Baganix User Web .htaccess
+# Path: /Baganix/user-web/.htaccess
+
+Options -Indexes
+RewriteEngine On
+
+# 1. Force HTTPS (Highly recommended to prevent Mixed Content Errors)
+# Uncomment these two lines below when deploying to production with SSL
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Single Page App (SPA) Clean Routing
+# This allows you to use URLs like w.baganix.online/feed instead of ?page=feed
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ index.php?page=$1 [QSA,L]

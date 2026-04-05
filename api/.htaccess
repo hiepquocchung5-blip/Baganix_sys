@@ -1,0 +1,15 @@
+# 🌟 Baganix API .htaccess
+# Path: /Baganix/api/.htaccess
+
+Options -Indexes
+RewriteEngine On
+
+# 1. Ensure Authorization Headers (JWT tokens) are passed properly to PHP
+# Some Apache servers strip this header by default.
+SetEnvIf Authorization "(.*)" HTTP_AUTHORIZATION=$1
+
+# 2. Hide .php Extensions (Optional but highly recommended for a premium API)
+# This allows requests to /v1/auth instead of /v1/auth.php
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]

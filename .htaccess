@@ -1,0 +1,17 @@
+# 🌟 Baganix Root .htaccess
+# Path: /Baganix/.htaccess
+# Purpose: Global security and access restriction for sensitive files.
+
+# 1. Disable directory listing globally so users cannot see your folder structures
+Options -Indexes
+
+# 2. 🛡️ ABSOLUTE PROTECTION FOR .ENV FILE
+<Files .env>
+    Require all denied
+    Order allow,deny
+    Deny from all
+</Files>
+
+# 3. Protect all core configuration files from direct browser access
+RewriteEngine On
+RewriteRule ^config/ - [F,L]

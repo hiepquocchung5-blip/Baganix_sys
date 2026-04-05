@@ -1,0 +1,16 @@
+# 🌟 Baganix Admin (MyPanel) .htaccess
+# Path: /Baganix/admin/.htaccess
+
+Options -Indexes
+RewriteEngine On
+
+# 1. Force HTTPS
+# Uncomment these two lines below when deploying to production with SSL
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. SPA Clean Routing for the Admin Dashboard
+# Enables mypanel.baganix.online/dashboard instead of ?page=dashboard
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ index.php?page=$1 [QSA,L]
